@@ -61,12 +61,18 @@ def test_winning_square_equals_100
 assert_equal(100, @board.winning_square)
 end
 
-def test_board_has_ladder_at_20_goes_to_39
+def test_ladder_start_and_end_points
 assert_equal(39, @board.ladders[20])
+assert_equal(67, @board.ladders[48])
+assert_equal(62, @board.ladders[59])
+assert_equal(88, @board.ladders[69])
+
 end
 
-def test_board_has_snake_at_30_goes_to_8
+def test_snake_start_and_end_points
 assert_equal(8, @board.snakes[30])
+assert_equal(26, @board.snakes[44])
+assert_equal(64, @board.snakes[86])
 end
 
 
