@@ -30,19 +30,22 @@ def test_player_takes_turn
   refute_equal(1, @player1.position)
 end
 
-def test_multiple_player_turns
-  @player1.take_turn(@board)
-  position1 = @player1.position
-  @player1.take_turn(@board)
-  position2 = @player1.position
-  assert_operator(position1, :<, position2)
+def test_multiple_player_turns_at_start_of_game_always_moves_forward
+  
+    @player1.take_turn(@board)
+    position1 = @player1.position
+    @player1.take_turn(@board)
+    position2 = @player1.position
+  if position1 < 94
+    assert_operator(position1, :<, position2)
+  end
 end
 
 #Use the test below and uncommnet the test dice code to test that landing on specific numbers causes the player to move up or down or stay put.
 
 # def test_player_lands_on_number_and_correct_thing_happens
-# @player1.take_turn(@board)
-# assert_equal(6, @player1.position)
+#   @player1.take_turn(@board)
+#   assert_equal(99, @player1.position)
 # end
 
 
@@ -88,6 +91,8 @@ def test_snake_or_ladder_returns_correct_position
   assert_equal(8, @board.snake_or_ladder_position(30))
   assert_equal(16, @board.snake_or_ladder_position(16))
 end
+
+#End of board tests
 
 
 

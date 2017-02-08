@@ -10,11 +10,15 @@ end
 def take_turn(board)
   dice = Dice.new
   @position += dice.roll
-  # test_dice_roll = 5
+  # test_dice_roll = 100
   # @position += test_dice_roll
 
 
- @position = board.snake_or_ladder_position(@position)
+  @position = board.snake_or_ladder_position(@position)
+
+  if @position > 100
+    @position = 100 - (@position - 100)
+  end
 
 end
 
