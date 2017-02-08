@@ -4,13 +4,17 @@ attr_reader :name, :position
 
 def initialize(name)
   @name = name
-  @position = 0
+  @position = 1
 end
 
-def take_turn
+def take_turn(board)
   dice = Dice.new
-
   @position += dice.roll
+  # test_dice_roll = 5
+  # @position += test_dice_roll
+
+
+ @position = board.snake_or_ladder_position(@position)
 
 end
 
@@ -43,7 +47,17 @@ def initialize
   @snakes = { 30 => 8 , 44 => 26 , 86 => 64 }
 end
 
+def snake_or_ladder_position(position)
 
+snake_ladder_hash = @ladders.merge(@snakes)
+
+for key in snake_ladder_hash.keys
+  if position == key 
+    return snake_ladder_hash[position]
+  end
+end
+return position
+end
 
 
 
