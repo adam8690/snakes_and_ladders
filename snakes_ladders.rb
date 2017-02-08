@@ -1,6 +1,6 @@
 class Player
 
-attr_reader :name, :position
+attr_reader :name, :position, :dice_roll
 
 def initialize(name)
   @name = name
@@ -8,8 +8,9 @@ def initialize(name)
 end
 
 def take_turn(board)
-  dice = Dice.new
-  @position += dice.roll
+  @dice = Dice.new
+  @dice_roll = @dice.roll
+  @position += @dice_roll
   # test_dice_roll = 100
   # @position += test_dice_roll
 
